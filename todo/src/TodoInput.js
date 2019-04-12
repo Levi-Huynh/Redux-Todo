@@ -24,16 +24,20 @@ createNewTodo = e => {
    
 };
 
+
+
+
 render() {
 
 return (
-    <form onSubmit = {this.createNewTodo}>
+    <form>
     <input
         type="text"
         value={this.state.inputValue}
         onChange={this.changeInputValue}
     />
-    <button type="submit">Add Todo</button>
+    <button onClick={this.createNewTodo}>Add Todo</button>
+   
     </form>
 );
 }
@@ -45,6 +49,6 @@ function mapStateToProps (state) {
 
 export default connect(
     mapStateToProps,
-    {addTodo: addTodo1 }
+    {addTodo: addTodo1 } 
 )(TodoInput);
 
