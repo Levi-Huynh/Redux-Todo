@@ -9,10 +9,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: []
+     
     };
   }
 
+  handleToggle= (event, todo) => {
+    event.preventDefault();
+    this.props.ToggleComplete(todo);
+
+}
+
+handleClearTask = (event, todo) => {
+    event.preventDefault();
+    this.props.ClearTask(todo);
+}
+
+  
   addTodo1 = text => {
     let newTodo = {
       value: text,
@@ -35,10 +47,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
-return {};
-
-}
+const mapStateToProps = state => ({
+  todos: state.todos
+});
 
 
 export default connect (mapStateToProps)(App);

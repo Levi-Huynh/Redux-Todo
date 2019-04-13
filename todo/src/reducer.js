@@ -3,15 +3,17 @@ import {TOGGLE} from './actions';
 import {CLEAR_TASK} from './actions';
 
 let defaultState= {
-    todos: []
+    todos: [{value: "grow garden", 
+    completed: false, id: Date.now()},
+    {value: "fix bike", completed: false, id: Date.now()}]
    
 };
 
 export default function reducer (state= defaultState, action) {
 switch (action.type) {
     case ADD_TODO:
-    let todoTask =action.paylod
-    let newTodo= {value: todoTask, completed: false, id: Date.now()};
+   
+    let newTodo= {value: action.payload, completed: false, id: Date.now()};
     return {...state, todos: newTodo, inputValue:""};
 
 
