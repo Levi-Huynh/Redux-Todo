@@ -14,7 +14,7 @@ switch (action.type) {
     case ADD_TODO:
    
     let newTodo= {value: action.payload, completed: false, id: Date.now()};
-    return {...state, todos: newTodo, inputValue:""};
+    return {...state,  todos: [...state.todos, newTodo]};
 
 
     case TOGGLE:
@@ -26,10 +26,11 @@ switch (action.type) {
         
 
     case CLEAR_TASK:
+    let task = action.payload
     return {...state,
-        todos:[...state.todos.filter(task => action.payload)]
+        todos:[...state.todos.filter(task => !task.completed )]
     };
 default: return state;
 }
 
-};
+}

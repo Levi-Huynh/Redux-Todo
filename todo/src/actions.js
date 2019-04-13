@@ -8,7 +8,8 @@ export const CLEAR_TASK = "CLEAR_TASK";
 //reducers do the actual logic
 
 export function addTodo1 (newTodo) {
- return{
+ 
+    return{
      type: ADD_TODO,
      payload: newTodo
  }
@@ -36,11 +37,12 @@ export function ToggleComplete (index) {
 }
 
 export function ClearTask (task) {
-let completed = !task.completed;
+
+    
     
     return {
         type: CLEAR_TASK,
-        payload: completed
+        payload: task
 
     }
 

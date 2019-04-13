@@ -4,14 +4,27 @@ import {ToggleComplete, ClearTask} from './actions';
 
 
 import './App.css'
-function TodoList(props) {
+class TodoList extends Component {
 
-    return(
+    handleToggle= (event, todo) => {
+        event.preventDefault();
+        this.props.ToggleComplete(todo);
+    
+    }
+    
+    handleClearTask = (event, index) => {
+        event.preventDefault();
+        this.props.ClearTask(index);
+    }
+
+    render()
+{    return(
     <div>
 
     
-    {props.todos.map((todo, index) =>{
-        return <h3 key={index}>{todo.value}</h3>;
+    {this.props.todos.map((todo, index) =>{
+        return <h3 onClick={event => this.handleToggle(event, index)} key={index} className={todo.completed? "completed": null}>{todo.value}</h3>
+               
     }
     )}
     
@@ -25,7 +38,7 @@ function TodoList(props) {
     
     }
     
-
+}
 
 
 //   <button onClick={(event, todo) => this.handleClearTask(event, todo)}>Delete</button>

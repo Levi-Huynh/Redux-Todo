@@ -13,16 +13,7 @@ class App extends Component {
     };
   }
 
-  handleToggle= (event, todo) => {
-    event.preventDefault();
-    this.props.ToggleComplete(todo);
 
-}
-
-handleClearTask = (event, todo) => {
-    event.preventDefault();
-    this.props.ClearTask(todo);
-}
 
   
   addTodo1 = text => {
